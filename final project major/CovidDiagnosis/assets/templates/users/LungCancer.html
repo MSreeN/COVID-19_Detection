@@ -1,0 +1,35 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+
+ <div class="section-title">
+          <h2>COVID</h2>
+          <h3>Upload an CT Scan png Lungs Images <span></span></h3>
+          <p>
+<form  action="{%url 'LungCancerPredictions'%}" enctype="multipart/form-data" method="POST">
+{%csrf_token%}
+												 <table>
+                        <div class="form-group row">
+                <div class="col-md-12">
+					<strong>Select an Image</strong>  <input type="file" name="file"  accept="image/gif, image/jpeg, image/png" required placeholder="Select an Image to Upload"><br/>
+                </div>
+              </div>
+                        <div class="form-group row">
+
+              </div>
+
+
+                                <button class="btn  btn-primary text-white py-3 px-5"
+                                        type="submit">
+                                    Upload
+                                </button>
+                            <h1>Results is <span style="color:RED">{{result}}</span></h1>
+
+
+
+
+                    </table>
+</form>
+          </p>
+        </div>
+{%endblock%}
